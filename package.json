@@ -1,0 +1,36 @@
+{
+  "name": "@dhruval/dk-date-input",
+  "version": "1.0.0",
+  "description": "input date-picker in material design for web",
+  "main": "material-calender.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dhruval Kodinariya",
+  "license": "ISC",
+  "dependencies": {
+    "@dhruval/dk-icon": "^1.0.0",
+    "@dhruval/dk-input": "^1.2.0",
+    "@dhruval/material-styles": "^1.1.0",
+    "lit-element": "^2.3.1",
+    "moment": "^2.25.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "material-design",
+    "date-picker",
+    "polymer",
+    "lit-element"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruvalkodinariya/dk-date-input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dhruvalkodinariya/dk-date-input/issues"
+  },
+  "homepage": "https://github.com/dhruvalkodinariya/dk-date-input#readme"
+}
