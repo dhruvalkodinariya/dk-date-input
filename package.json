@@ -1,6 +1,6 @@
 {
   "name": "@dhruval/dk-date-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "input date-picker in material design for web",
   "main": "material-calender.js",
   "scripts": {
