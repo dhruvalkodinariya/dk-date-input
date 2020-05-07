@@ -58,6 +58,10 @@ export class MaterialDates extends LitElement {
           background-color:var(--mdc-theme-primary);
           color:var(--mdc-theme-on-primary);
         }
+
+        .date.disabled{
+          pointer-events:none;
+        }
         `
     ]
   }
@@ -77,8 +81,8 @@ export class MaterialDates extends LitElement {
         <div class="date-container">
           ${repeat(this.dates,(date)=>date,(date, index)=>{
             return html`
-            <div class="date" data-date="${date}" @click="${this._onSelectDate}">
-              <span class="${this.selected == date ? 'active-date' : ''} ${this.today == date ? 'today' : ''}">${date}</span>
+            <div class="date ${!date.value ? 'disabled' : ''}" data-date="${date.value}" @click="${this._onSelectDate}">
+              <span class="${this.selected == date.value ? 'active-date' : ''} ${this.today == date.value ? 'today' : ''}">${date.value}</span>
             </div>`
           })}
         </div>
@@ -160,13 +164,13 @@ export class MaterialDates extends LitElement {
     var i = 0;
     if(prevDates < 6){
       while (i++ <= prevDates) {
-        dates.push("")
+        dates.push({value: "", disabled: true})
       }
       i=0;
     }
     
     while (i++ < dateEnd) {
-      dates.push(i)
+      dates.push({value: i, disabled: false})
     }
     
     this.dates = dates;
@@ -174,11 +178,13 @@ export class MaterialDates extends LitElement {
 
   _onSelectDate(e){
     let date = e.currentTarget.dataset['date'];
-    this.dispatchEvent(new CustomEvent('date-select',{
-      detail: { date : date },
-      bubbles: true,
-      composed: true
-    }))
+    if(date){
+      this.dispatchEvent(new CustomEvent('date-select',{
+        detail: { date : date },
+        bubbles: true,
+        composed: true
+      }))
+    }
   }
 }
 customElements.define('material-dates', MaterialDates);
